@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');*{
+  margin:0;
+  padding:0;
+}
+
+body{
+  background:#081A20;
+}
+.container {
+  width:500px;
+  height:500px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+.content{
+  width:100%;
+  height:100%;
+  position:relative;
+}
+.clock_base {
+  position: absolute;
+  width: 400px;
+  height: 400px;  
+  background: linear-gradient(135deg, #081B22 0%, #08191E 100%);
+  box-shadow: -10px 10px 20px rgba(5, 16, 20, 0.2), 10px -10px 20px rgba(5, 16, 20, 0.2), -10px -10px 20px rgba(11, 36, 44, 0.9), 10px 10px 25px rgba(5, 16, 20, 0.9), inset 1px 1px 2px rgba(11, 36, 44, 0.3), inset -1px -1px 2px rgba(5, 16, 20, 0.5);
+  top:50%;
+  left:50%;
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+}
+
+.clock_base1 {
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  background: #081A20;
+  box-shadow: 1px 1px 2px rgba(11, 36, 45, 0.3), -1px -1px 2px rgba(5, 16, 19, 0.5), inset -10px 10px 20px rgba(5, 16, 19, 0.2), inset 10px -10px 20px rgba(5, 16, 19, 0.2), inset -10px -10px 20px rgba(11, 36, 45, 0.9), inset 10px 10px 25px rgba(5, 16, 19, 0.9);
+  top:50%;
+  left:50%;
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+}
+
+.clock_base2 {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: #081A20;
+  box-shadow: -10px 10px 20px rgba(5, 16, 19, 0.2), 10px -10px 20px rgba(5, 16, 19, 0.2), -10px -10px 20px rgba(11, 36, 45, 0.9), 10px 10px 25px rgba(5, 16, 19, 0.9), inset 1px 1px 2px rgba(11, 36, 45, 0.3), inset -1px -1px 2px rgba(5, 16, 19, 0.5);
+  top:50%;
+  left:50%;
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+}
+
+.hour_hand{
+  --rotation: 0;
+  position: absolute;
+  width: 12px;
+  height: 100px;
+  background: #E2296F;
+  bottom:50%;
+  left:50%;
+  border-radius:12px;
+  transform:translate(-50%,0) rotate(calc(var(--rotation) * 1deg));
+  transform-origin: bottom;
+}
+
+.minute_hand {
+  --rotation: 0;
+  position: absolute;
+  width: 8px;
+  height: 120px;
+  background: #55626A;
+  border-radius: 8px;
+  bottom:50%;
+  left:50%;
+  transform:translate(-50%,0) rotate(calc(var(--rotation) * 1deg));
+  transform-origin: bottom;
+
+}
+
+.second_hand{
+  --rotation: 0;
+  position: absolute;
+  width: 6px;
+  height: 200px;
+  background: #6B5CF8;
+  border-radius: 6px;
+  bottom:50%;
+  left:50%;
+  transform:translate(-50%,60px) rotate(calc(var(--rotation) * 1deg));
+  transform-origin: 3px 140px;
+}
+
+.clock_cap {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #6D5DFC;
+  box-shadow: -10px 10px 20px rgba(5, 16, 19, 0.2), 10px -10px 20px rgba(5, 16, 19, 0.2), -10px -10px 20px rgba(11, 36, 45, 0.9), 10px 10px 25px rgba(5, 16, 19, 0.9), inset 1px 1px 2px rgba(11, 36, 45, 0.3), inset -1px -1px 2px rgba(5, 16, 19, 0.5);
+  top:50%;
+  left:50%;
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+}
+
+.mark {
+  position: absolute;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  text-align: center;
+  color: #55626A;
+  transform: translate(-50%,-50%);
+}
+.twelve {
+  top:90px;
+  left:50%;
+}
+.three {
+  right:90px;
+  top:50%;
+  transform:translate(50%,-50%);
+  --rotation: 90;
+}
+.six {
+  bottom:90px;
+  left:50%;
+  transform:translate(-50%,50%);
+}
+.nine {
+  left:90px;
+  top:50%;
+}
