@@ -6,15 +6,16 @@ const booked = document.querySelector(".booked");
 const remaining = document.querySelector(".remaining");
 
 var bcount = 0;
-var rcount = 80;
+var rcount = 100; // here add the number of seats you want
 
 const number = rcount;
+
+remaining.innerHTML = ` ${rcount}`;
 
 // add seats element number of time
 for (let i = 0; i < number; i++) {
   container.appendChild(seat.cloneNode(true));
 }
-
 
 // click event listener
 document.addEventListener("click", (e) => {
@@ -32,7 +33,7 @@ document.addEventListener("click", (e) => {
       rcount++;
     }
 
-// update the count in the html
+    // update the count in the html
     booked.innerHTML = ` ${bcount}`;
     remaining.innerHTML = ` ${rcount}`;
   }
