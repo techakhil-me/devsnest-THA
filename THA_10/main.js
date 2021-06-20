@@ -78,7 +78,9 @@ function insertCard(state) {
 insertCard("over");
 
 function play() {
-  insertCard("play");
+  if (state=="over"){
+  state = "play"
+  insertCard(state);
   first = null;
   second = null;
   score = 0;
@@ -91,10 +93,12 @@ function play() {
     }
   }, 1000);
 }
+}
 
 function endGame(result) {
   insertCard("over");
   clearInterval(timer);
   start.innerHTML = "RESTART";
   alert(`You ${result}`);
+  state = "over"
 }
