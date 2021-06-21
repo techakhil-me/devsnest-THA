@@ -6,13 +6,9 @@ var icons = [
   "discord",
   "amazon",
   "github",
-  "apple",
-  "google",
-  "facebook",
-  "discord",
-  "amazon",
-  "github"
 ];
+icons = [...icons,...icons]
+console.log(icons)
 var state = "over";
 const start = document.querySelector(".start");
 start.addEventListener("click", play);
@@ -20,6 +16,15 @@ var first = null;
 var second = null;
 var score = 0;
 var timer = null;
+
+const dialog = document.querySelector('.result')
+const restart = document.querySelector('.restart')
+const close = document.querySelector('.close')
+
+
+
+
+
 
 function shuffleArray(array) {
   for (var i = array.length - 1; i > 0; i--) {
@@ -54,17 +59,18 @@ function insertCard(state) {
               second.style.visibility = "hidden";
               first = null;
               second = null;
-            }, 1000);
-            if (score == icons.length / 2) {
-              endGame("Won");
-            }
+              if (score == icons.length / 2) {
+                endGame("Won");
+              }
+            }, 500);
+            
           } else {
             setTimeout(() => {
               first.classList.remove("turn");
               second.classList.remove("turn");
               first = null;
               second = null;
-            }, 1000);
+            }, 500);
           }
         }
       });
@@ -72,14 +78,16 @@ function insertCard(state) {
     section.append(card);
     setTimeout(() => {
       card.classList.toggle("turn");
-    }, i * 80);
+    }, i * 50);
   });
 }
 insertCard("over");
 
 function play() {
+  dialog.style.display = 'none';
   if (state=="over"){
   state = "play"
+  i=0
   insertCard(state);
   first = null;
   second = null;
@@ -95,10 +103,18 @@ function play() {
 }
 }
 
+
+
+
+restart.addEventListener('click',play)
+close.addEventListener('click',()=>{
+  dialog.style.display = 'none';
+})
 function endGame(result) {
   insertCard("over");
   clearInterval(timer);
   start.innerHTML = "RESTART";
-  alert(`You ${result}`);
+  document.querySelector('.title').innerHTML = `You ${result}`;
+  dialog.style.display = 'flex';
   state = "over"
 }
