@@ -22,8 +22,8 @@ document.addEventListener("click", (e) => {
   // check if the clicked element is a seat
   if (e.target.classList.contains("seat")) {
     // adding a class named occupied
-    console.log(e.target.classList.toggle("occupied"));
-
+    e.target.classList.toggle("occupied");
+    // e.target.classList.add("occupied");
     // check if the seat is occupied and add or subtract respectively
     if (e.target.classList.contains("occupied")) {
       bcount++;
