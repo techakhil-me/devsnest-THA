@@ -1,3 +1,17 @@
+var url = "https://opentdb.com/api.php?amount=10";
+
+fetch(url)
+  .then((response) => response.json())
+  .then((data) => {
+    var results = data.results;
+    console.log(results)
+    results.forEach((quest) => {
+      let options = [quest.correct_answer, ...quest.incorrect_answers];
+      quest.options = options;
+      console.log(quest);
+    });
+  });
+
 const questions = [
   {
     question: "Who is the owner of Bitcoin ?",
@@ -6,16 +20,13 @@ const questions = [
   {
     question: "when was bitcoin created ?",
     options: ["2009", "2011", "2010", "2008"]
-  },
-  
+  }
 ];
 
 const body = document.body;
 var score = 0;
 
-
-
-function shuffle(arr){
+function shuffle(arr) {
   for (var i = arr.length - 1; i > 0; i--) {
     var j = Math.floor(Math.random() * (i + 1));
     var temp = arr[i];
@@ -23,8 +34,6 @@ function shuffle(arr){
     arr[j] = temp;
   }
 }
-
-
 
 function reveal(elem) {
   let temp = score;
@@ -59,8 +68,22 @@ function createOption(option, answer = false) {
 
 
 
-shuffle(questions)
-questions.forEach((currentQuestion, questionNumber) => {
+
+fetch(url)
+  .then((response) => response.json())
+  .then((data) => {
+    var results = data.results;
+    console.log(results)
+    results.forEach((quest) => {
+      let options = [quest.correct_answer, ...quest.incorrect_answers];
+      quest.options = options;
+      console.log(quest);
+    });
+
+
+
+    shuffle(questions);
+results.forEach((currentQuestion, questionNumber) => {
   // the code we want to run for each question goes here
   const container = document.createElement("div");
   container.className = "container";
@@ -79,23 +102,55 @@ questions.forEach((currentQuestion, questionNumber) => {
       optionsArr.push(createOption(option));
     }
   });
-  shuffle(optionsArr)
+  shuffle(optionsArr);
   optionsArr.forEach((option) => {
     options.append(option);
   });
   container.append(options);
   body.append(container);
+
+  const result = document.querySelector(".result");
+result.addEventListener("click", () => {
+  result.innerHTML = `${score}/${results.length}`;
+});
 });
 
 
 
+  });
+// shuffle(questions);
+// questions.forEach((currentQuestion, questionNumber) => {
+//   // the code we want to run for each question goes here
+//   const container = document.createElement("div");
+//   container.className = "container";
+//   const question = document.createElement("div");
+//   question.className = "question";
+//   question.innerHTML = `${questionNumber + 1}. ${currentQuestion.question}`;
+//   container.append(question);
 
-const result = document.querySelector('.result')
- result.addEventListener('click',()=>{
-result.innerHTML=`${score}/${questions.length}`
- })
+//   const options = document.createElement("div");
+//   options.className = "options";
+//   let optionsArr = [];
+//   currentQuestion.options.forEach((option, number) => {
+//     if (number == 0) {
+//       optionsArr.push(createOption(option, true));
+//     } else {
+//       optionsArr.push(createOption(option));
+//     }
+//   });
+//   shuffle(optionsArr);
+//   optionsArr.forEach((option) => {
+//     options.append(option);
+//   });
+//   container.append(options);
+//   body.append(container);
+// });
 
- 
+// const result = document.querySelector(".result");
+// result.addEventListener("click", () => {
+//   result.innerHTML = `${score}/${questions.length}`;
+// });
+
 {
   /* <div class="container">
       <div class="question">Who is the owner bitcoin ?</div>
