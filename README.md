@@ -12,8 +12,6 @@ This repository contains all the files part of my Devsnest assignments.
 
 
 
-<figure class="video_container">
   <video controls="true" allowfullscreen="true" poster="THA_10/logocard.png">
     <source src="show.mp4" type="video/mp4">
   </video>
-</figure>
