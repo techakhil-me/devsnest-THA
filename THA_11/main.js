@@ -1,16 +1,6 @@
 var url = "https://opentdb.com/api.php?amount=10";
 
-fetch(url)
-  .then((response) => response.json())
-  .then((data) => {
-    var results = data.results;
-    console.log(results)
-    results.forEach((quest) => {
-      let options = [quest.correct_answer, ...quest.incorrect_answers];
-      quest.options = options;
-      console.log(quest);
-    });
-  });
+// fetch(url).then((response) => response.json()).then((data)=> console.log(data))
 
 const questions = [
   {
@@ -73,11 +63,11 @@ fetch(url)
   .then((response) => response.json())
   .then((data) => {
     var results = data.results;
-    console.log(results)
+    // console.log(results)
     results.forEach((quest) => {
       let options = [quest.correct_answer, ...quest.incorrect_answers];
       quest.options = options;
-      console.log(quest);
+      // console.log(quest);
     });
 
 
