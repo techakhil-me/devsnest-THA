@@ -1,4 +1,5 @@
 # devsnest-THA
+
 This repository contains all the files part of my Devsnest assignments.
 
 ## LINKS
@@ -12,3 +13,5 @@ This repository contains all the files part of my Devsnest assignments.
 - [THA 12](https://undefined-whiteboard.netlify.app) (implemented)
 - [THA 13](https://4rmhf.csb.app/THA_11/index.html)(implemented)
 - [THA 14](https://undefined-whiteboard.netlify.app) (implemented)
+- [THA 15-21](https://calorifit.netlify.app/) (implemented)
+- [THA 22](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
